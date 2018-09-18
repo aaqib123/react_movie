@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieRow from './MovieRow.js'
+import Header from './Header.js'
 import './App.css';
 
 class App extends Component {
@@ -29,25 +30,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <table className="App-header">
-          <tbody>
-            <tr>
-              <td>
-                <img src="#" alt="too poor for logos" />
-              </td>
-              <td>
-                The Movie Searcher
-            </td>
-            </tr>
-          </tbody>
-        </table>
-
+        <Header />
         <input className="searchbox" placeholder="Enter movie name" />
-
-
         {this.state.rows}
-
-
       </div>
     );
   }
