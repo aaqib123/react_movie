@@ -32,7 +32,9 @@ class App extends Component {
       <div>
         <Header />
         <input className="searchbox" placeholder="Enter movie name" />
+        <div className="movie_container">
         {this.state.rows}
+        </div>
       </div>
     );
   }
