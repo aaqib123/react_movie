@@ -1,0 +1,28 @@
+
+.App-header {
+  background-color: #222;
+  height: 10%;
+  padding: 20px;
+  color: white;
+  width: 100%;
+}
+
+.searchbox {
+  background-color: #222;
+  height: 10%;
+  padding: 20px;
+  color: white;
+  width: 100%;
+}
+
+.posters_row{
+  width:80px;
+}
+.posters_row_img{
+  width:80px;
+}
+.movie_row{
+  width:100%;
+}
+
+/* https://www.youtube.com/watch?v=bqSSLr8A8PU */
