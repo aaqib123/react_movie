@@ -6,7 +6,7 @@ class MovieRow extends React.Component {
                 <tbody>
                     <tr>
                         <td className="posters_row">
-                            <img alt="# " className="posters_row_img" src={this.props.movie.posterSrc} />
+                            <img alt="# " className="posters_row_img" src={this.props.movie.poster_src} />
                         </td>
                         <td>
                             {this.props.movie.title}
