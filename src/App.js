@@ -7,9 +7,8 @@ import $ from 'jquery';
 class App extends Component {
   constructor(props) {
     super(props)
+    this.searchHandler = this.searchHandler.bind(this);
     this.state = '';
-    console.log("initialize!");
-    this.Search("avenge");
   }
 
   Search(searchValue) {
@@ -37,15 +36,16 @@ class App extends Component {
     })
   }
 
-  searchHandler(err){
-    console.log(e.target.value);
+  searchHandler(e) {
+    const Searchmovietitle = (e.target.value);
+    this.Search(Searchmovietitle);
   }
 
   render() {
     return (
       <div>
         <Header />
-        <input className="searchbox" placeholder="Enter movie name" onChange={this.searchHandler}/>
+        <input className="searchbox" placeholder="Enter movie name" onChange={this.searchHandler} />
         <div className="movie_container">
           {this.state.rows}
         </div>
