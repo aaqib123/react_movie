@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieRow from './MovieRow.js'
+import Header from './Header.js'
 import './App.css';
 import $ from 'jquery';
 
@@ -8,65 +9,46 @@ class App extends Component {
     super(props)
     this.state = '';
     console.log("initialize!");
-    this.Search();
+    this.Search("avenge");
   }
 
-  Search() {
+  Search(searchValue) {
     console.log("movie db search ")
-    const urlSite = "https://api.themoviedb.org/3/search/movie?api_key=f1f55aa8f93ba7c5fdaa9f7f3e25bb91&language=en-US&query=avenge&page=1&include_adult=false";
+    const urlSite = "https://api.themoviedb.org/3/search/movie?api_key=f1f55aa8f93ba7c5fdaa9f7f3e25bb91&language=en-US&page=1&include_adult=false&query=" + searchValue;
     $.ajax({
       url: urlSite,
-      success:(resultsReq)=>{
+      success: (resultsReq) => {
         console.log("promise kept");
-        console.log(resultsReq);
         const movies = resultsReq.results;
-
-
-
         var movieRows = [];
 
         movies.forEach(movie => {
           movie.poster_src = "https://image.tmdb.org/t/p/w185/" + movie.poster_path;
           console.log(movie.id);
-          const movieRow = <MovieRow movie={movie}/> ;
+          const movieRow = <MovieRow movie={movie} />;
           movieRows.push(movieRow);
         })
-    
-        console.log(movieRows);
-        this.setState ({ rows: movieRows });
-
-
-
+        // console.log(movieRows);
+        this.setState({ rows: movieRows });
       },
-      error:(xhr, status, err)=>{
+      error: (xhr, status, err) => {
         console.log("failure")
       }
     })
   }
 
+  searchHandler(err){
+    console.log(e.target.value);
+  }
 
   render() {
     return (
       <div>
-        <table className="App-header">
-          <tbody>
-            <tr>
-              <td>
-                <img src="#" alt="too poor for logos" />
-              </td>
-              <td>
-                The Movie Searcher
-            </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <input className="searchbox" placeholder="Enter movie name" />
-
-
-        {this.state.rows}
-
-
+        <Header />
+        <input className="searchbox" placeholder="Enter movie name" onChange={this.searchHandler}/>
+        <div className="movie_container">
+          {this.state.rows}
+        </div>
       </div>
     );
   }
