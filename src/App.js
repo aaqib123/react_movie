@@ -19,8 +19,8 @@ class App extends Component {
       success: (resultsReq) => {
         console.log("promise kept");
         const movies = resultsReq.results;
-        var movieRows = [];
 
+        var movieRows = [];
         movies.forEach(movie => {
           movie.poster_src = "https://image.tmdb.org/t/p/w185/" + movie.poster_path;
           console.log(movie.id);
