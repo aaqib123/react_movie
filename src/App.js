@@ -7,7 +7,7 @@ import $ from 'jquery';
 class App extends Component {
   constructor(props) {
     super(props)
-    this.searchHandler = this.searchHandler.bind(this);
+    //this.searchHandler = this.searchHandler.bind(this);
     this.state = '';
   }
 
@@ -21,6 +21,7 @@ class App extends Component {
         const movies = resultsReq.results;
 
         var movieRows = [];
+        //push movie to array. render movie table.
         movies.forEach(movie => {
           movie.poster_src = "https://image.tmdb.org/t/p/w185/" + movie.poster_path;
           console.log(movie.id);
@@ -36,7 +37,8 @@ class App extends Component {
     })
   }
 
-  searchHandler(e) {
+  //get input field
+  searchHandler = (e)  => {
     const Searchmovietitle = (e.target.value);
     this.Search(Searchmovietitle);
   }
